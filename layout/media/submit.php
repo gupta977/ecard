@@ -49,7 +49,7 @@ if (!empty($errors)) {
 	die;
 }
 
-if (upgpro_verify_comment_captcha() == "OK") {
+if (upg_verify_captcha() == "OK") {
 
 	$xid = time();
 
@@ -94,5 +94,5 @@ if (upgpro_verify_comment_captcha() == "OK") {
 
 	echo "<br><br><br><a href='' class='pure-button pure-button-primary'>" . __('Send to Others', 'odude-ecard') . "</a>";
 } else {
-	echo "<b>" . upgpro_verify_comment_captcha() . "</b><br><br><a href=\"javascript:history.go(-1)\" class=\"pure-button\">" . __('Go Back', 'odude-ecard') . "</a>";
+	echo "<b>" . upg_verify_captcha() . "</b><br><br><a href=\"javascript:history.go(-1)\" class=\"pure-button\">" . __('Go Back', 'odude-ecard') . "</a>";
 }

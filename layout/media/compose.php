@@ -6,7 +6,7 @@
 		$captcha = '<div class="g-recaptcha" data-sitekey="' . $options['odudecard_text_captcha_key'] . '"></div><br>';
 
 	$futuredate = "";
-	if (isset($options['odudecard_text_date_enable']) && $options['odudecard_text_date_enable'] == '1')
+	if (is_upg_pro() && isset($options['odudecard_text_date_enable']) && $options['odudecard_text_date_enable'] == '1')
 		$futuredate = '<input type="date" class="datepicker" name="datepicker" value="" />';
 
 	do_action('odudecard_music', $post);
@@ -74,7 +74,9 @@
 						}
 						?>
 				</div>
-				<div class="pure-u-1-1" style="text-align:center;"><?php echo $captcha; ?></div>
+				<div class="pure-u-1-1"><?php
+											do_action("upg_submit_form");
+											?></div>
 				<div class="pure-u-1-1 pure-u-md-1-2"><button type="submit" class="pure-button" name="facebook" id="facebook" formaction="<?php echo $linku; ?>"><i class="fa fa-share"></i> <?php esc_html_e('Generate Ecard Link', 'odude-ecard'); ?></button> <input type="hidden" name="cardid" value="<?php echo $cardid; ?>"></div>
 
 
@@ -150,11 +152,11 @@
 				<div class="pure-u-1-2"><?php if ($futuredate != "") esc_html_e('Send card on specific date:', 'odude-ecard'); ?><?php echo $futuredate; ?></div>
 				<div class="pure-u-1-2">&nbsp;</div>
 
-				<div class="pure-u-1-1" style="text-align:center;">
+				<div class="pure-u-1-1">
 					<?php
 						do_action("upg_submit_form");
 						?>
-					<?php echo $captcha; ?></div>
+				</div>
 
 				<div class="pure-u-1-1 pure-u-md-1-2"> <button type="submit" class="pure-button pure-button-primary">
 						<i class="fa fa-envelope"></i>
@@ -167,17 +169,7 @@
 		</form>
 
 
-		<script>
-			jQuery(function() {
-				jQuery(".datepicker").datepicker({
-					dateFormat: "yy-mm-dd",
-					minDate: 0,
-					maxDate: "+2M +10D"
-				});
-
-			});
-		</script>
 	<?php
-
 	}
+
 	?>

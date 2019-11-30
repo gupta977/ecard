@@ -49,7 +49,7 @@ if (isset($_POST['preview']) || isset($_POST['facebook'])) {
 
 		die;
 	}
-	if (upgpro_verify_comment_captcha() == "OK") {
+	if (upg_verify_captcha() == "OK") {
 		$xid = time();
 		$query =  "insert into " . $wpdb->prefix . "odudecard_view values('$xid','$SN','$SE','','','','$sub','$body','N','Y','$cardid','',0,'')";
 
@@ -103,7 +103,7 @@ if (isset($_POST['preview']) || isset($_POST['facebook'])) {
 
 
 		} else {
-			echo "<b>" . upgpro_verify_comment_captcha() . "</b><br><br><a href=\"javascript:history.go(-1)\" class=\"pure-button\">" . __('Go Back', 'odude-ecard') . "</a>";
+			echo "<b>" . upg_verify_captcha() . "</b><br><br><a href=\"javascript:history.go(-1)\" class=\"pure-button\">" . __('Go Back', 'odude-ecard') . "</a>";
 		}
 	} else {
 		global $wpdb;
