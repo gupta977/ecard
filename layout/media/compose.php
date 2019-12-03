@@ -112,7 +112,7 @@
 				<div class="pure-u-1-2"><?php esc_html_e('Receiver E-Mail', 'odude-ecard'); ?></div>
 				<div class="pure-u-1-2"> <input id="RN" name="RN" class="pure-u-1" type="text" required></div>
 				<div class="pure-u-1-2"> <input id="RE" name="RE" class="pure-u-1" type="email" required></div>
-				<div class="pure-u-1-1"><?php esc_html_e('Subject', 'odude-ecard'); ?>: <input id="sub" name="sub" class="pure-u-1-1 pure-input-rounded" type="text"><br></div>
+				<div class="pure-u-1-1"><?php esc_html_e('Subject', 'odude-ecard'); ?>: <input id="sub" name="sub" class="pure-u-1-1 pure-input-rounded" type="text" required><br></div>
 
 
 				<div class="pure-u-1-1">
@@ -160,7 +160,7 @@
 
 				<div class="pure-u-1-1 pure-u-md-1-2"> <button type="submit" class="pure-button pure-button-primary">
 						<i class="fa fa-envelope"></i>
-						<?php esc_html_e('Email This Ecard', 'odude-ecard'); ?></button></div>
+						<?php esc_html_e('Email This ecard', 'odude-ecard'); ?></button></div>
 
 				<div class="pure-u-1-1 pure-u-md-1-2">&nbsp;</div>
 

@@ -80,38 +80,41 @@ function odudecard_meta_box_color($post)
 //Music select
 function odudecard_meta_box_music($post)
 {
+	if (is_upg_pro()) {
+		wp_nonce_field(plugin_basename(__FILE__), 'odudecard_music_nonce');
 
-	wp_nonce_field(plugin_basename(__FILE__), 'odudecard_music_nonce');
-
-	global $post;
-	$custom  = get_post_custom($post->ID);
-	if (isset($custom["music_link"][0]))
-		$link    = $custom["music_link"][0];
-	else
-		$link = "";
-	$count   = 0;
-	echo '<div class="link_header">';
-	$query_pdf_args = array(
-		'post_type' => 'attachment',
-		'post_mime_type' => 'audio/wav,audio/mpeg,audio/ogg',
-		'post_status' => 'inherit',
-		'posts_per_page' => -1,
-	);
-	$query_pdf = new WP_Query($query_pdf_args);
-	$pdf = array();
-	echo '<select name="music_link">';
-	echo '<option class="pdf_select">None</option>';
-	foreach ($query_pdf->posts as $file) {
-		if ($link == $pdf[] = $file->guid) {
-			echo '<option value="' . $pdf[] = $file->guid . '" selected="true">' . $pdf[] = $file->guid . '</option>';
-		} else {
-			echo '<option value="' . $pdf[] = $file->guid . '">' . $pdf[] = $file->guid . '</option>';
+		global $post;
+		$custom  = get_post_custom($post->ID);
+		if (isset($custom["music_link"][0]))
+			$link    = $custom["music_link"][0];
+		else
+			$link = "";
+		$count   = 0;
+		echo '<div class="link_header">';
+		$query_pdf_args = array(
+			'post_type' => 'attachment',
+			'post_mime_type' => 'audio/wav,audio/mpeg,audio/ogg',
+			'post_status' => 'inherit',
+			'posts_per_page' => -1,
+		);
+		$query_pdf = new WP_Query($query_pdf_args);
+		$pdf = array();
+		echo '<select name="music_link">';
+		echo '<option class="pdf_select">None</option>';
+		foreach ($query_pdf->posts as $file) {
+			if ($link == $pdf[] = $file->guid) {
+				echo '<option value="' . $pdf[] = $file->guid . '" selected="true">' . $pdf[] = $file->guid . '</option>';
+			} else {
+				echo '<option value="' . $pdf[] = $file->guid . '">' . $pdf[] = $file->guid . '</option>';
+			}
+			$count++;
 		}
-		$count++;
+		echo '</select><br /></div>';
+		echo '<p>List MP3,Wav,Ogg files from Media Manager.</p>';
+		echo '<div class="pdf_count"><span>Files:</span> <b>' . $count . '</b></div>';
+	} else {
+		echo "Install UPG-PRO";
 	}
-	echo '</select><br /></div>';
-	echo '<p>List MP3,Wav,Ogg files from Media Manager.</p>';
-	echo '<div class="pdf_count"><span>Files:</span> <b>' . $count . '</b></div>';
 }
 
 //Layout of ecard

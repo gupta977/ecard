@@ -1,56 +1,47 @@
 <?php
 //This page is inlcuded with UPG ecard layout
 
-include(dirname(__FILE__)."/../header.php");
+include(dirname(__FILE__) . "/../header.php");
 
 
 
-if(isset($_POST['SN']))
-	$SN=$_POST['SN'];
+if (isset($_POST['SN']))
+	$SN = $_POST['SN'];
 else
-	$SN="";
+	$SN = "";
 
-	if($SN=='')
-{
-	
+if ($SN == '') {
+
 	?>
 
 	<div class="margin-box">
-	<?php
-					 if(upg_isVideo($post))
-					 {
-						 /* $attr = array(
-						'src'      => esc_url( upg_isVideo($post) ),
-						'width'    => 560,
-						'height'   => 315
-						
-						);
-	
-						echo wp_video_shortcode( $attr ); */
-						
-						echo "Youtube video is not supported as ecard";
-						
-					 }
-					else
-					{
-							 
-						?>
-					 <img src="<?php echo $image; ?>" class="pure-img">
-					  <?php
-					}
-						 ?>
-	
-	
+		<?php
+			if (upg_isVideo($post)) {
+				$attr = array(
+					'src'      => esc_url(upg_isVideo($post)),
+					'width'    => 560,
+					'height'   => 315
+
+				);
+
+				//echo wp_video_shortcode( $attr );
+				echo wp_oembed_get($attr['src']);
+			} else {
+
+				?>
+			<img src="<?php echo $image; ?>" class="pure-img">
+		<?php
+			}
+			?>
+
+
 	</div>
 
-<br>
+	<br>
 
-	<?php
-	include(dirname(__FILE__)."/../compose.php");
-	
+<?php
+	include(dirname(__FILE__) . "/../compose.php");
+} else {
+	include(dirname(__FILE__) . "/../submit.php");
 }
-else
-{
-	include(dirname(__FILE__)."/../submit.php");
-}
-?>	
+?>
