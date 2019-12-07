@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: ODude Ecard
+Plugin Name: ODude Ecard UPG
 Plugin URI: http://odude.com/
 Description: ODude Ecard to make a complete greetings card site.
-Version: 2.4
+Version: 2.5
 Author: ODude Network
 Author URI: http://odude.com/
 License: GPLv2 or later
@@ -238,11 +238,11 @@ function pending_cards()
 				$msg = "Hello " . $card->RN . ",<br> You have received a beautiful greetings card from " . $card->SN . ".<br><br>Click the link below to view it.<br><br>$link<br><br>Thank you<br>";
 
 				//Sending Mail
-				add_filter('wp_mail_content_type', 'oset_html_content_type');
+				$headers[] = 'Content-Type: text/html; charset=UTF-8';
 				$headers[] = 'From: ' . $card->SN . ' <' . $card->SE . '>';
 				wp_mail($card->RE, $card->sub, $msg, $headers);
 				// Reset content-type to avoid conflicts 
-				remove_filter('wp_mail_content_type', 'oset_html_content_type');
+
 
 
 				$up = "update " . $wpdb->prefix . "odudecard_view set status='Y' where id='" . $card->id . "'";

@@ -1,9 +1,9 @@
 === Ecard - Seasonal Greetings ===
 Contributors: odude
-Tags: 2.4
+Tags: ecard,greetings,e-card,christmas,cards
 Donate link: http://odude.com
 Requires at least: 3.8
-Tested up to: 5.0.2
+Tested up to: 5.3.0
 Requires PHP: 5.5
 Stable tag: trunk
 License: GPLv3
@@ -47,7 +47,7 @@ For further queries feel free to drop a line at navneet@odude.com.
 
 = Live Demo =
 
-<a href="https://odude.com/demo/ecard/users-post-gallery/">Ecard Demo</a>
+<a href="https://odude.com/demo/ecard/">Ecard Demo</a>
 
 = Layout Demo =
 
@@ -98,6 +98,7 @@ In settings choose pickup from odude card setting page.
 == Changelog ==
 =2.5 =
 * Captcha will be handled by UPG-PRO
+* UPG-ECARD-PRO is no more updated or required
 
 = 2.4 =
 * Changed Demo site

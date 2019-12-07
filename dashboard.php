@@ -34,10 +34,35 @@ function odudecard_dashboard()
 		At UPG List, Confirm the post or ecard is set as <b>UPG Preview Template: ecard layout</b> & <b>Ecard Theme: basic layout</b>. <br>UPG post will be dynamically converted into ecard.
 		<br>
 		<br>
-		<b>Notice</b>: For older version 1.4.4 and before, all ecard posted need to be re-uploaded at UPG plugin. You can copy old images from media manager. <br>
-		If you are happy with older version, <a href="https://wordpress.org/plugins/odude-ecard/advanced/">download</a> and overwrite all the files via FTP but don't upgrade it. No support will be given for older version.<br>
-		<a href="<?php echo admin_url('edit.php?post_type=odudecard'); ?>">You can access your old ecard.</a>
-
+		<b>Notice</b>: 3 pages are created automatically after activation. This page can be used if you want users to upload ecard of their choice.
+		<br>
+		<hr>
+		<b>1- Post Ecard Image</b><br>
+		<code>
+			[upg-form class="pure-form pure-form-stacked" title="Post Ecard Image" name="my_ecard_image" taxonomy="upg_cate" tag_taxonomy="upg_tag" preview="ecard"]<br>
+			[upg-form-tag type="post_title" title="Image Title" value="" placeholder="main title"]<br>
+			[upg-form-tag type="category" title="Select category" taxonomy="upg_cate" filter="image"]<br>
+			[upg-form-tag type="tag" title="Insert tag"]<br>
+			[upg-form-tag type="file" title="Select file" required="true"]<br>
+			[upg-form-tag type="submit" name="submit" value="Upload"]<br>
+			[/upg-form]<br>
+		</code>
+		<hr>
+		<b>2- Post Video Ecard URL</b><br>
+		<code>
+			[upg-form class="pure-form pure-form-stacked" title="Post Video Ecard URL" name="my_ecard" taxonomy="upg_cate" tag_taxonomy="upg_tag" post_type="video_url" preview="ecard"]<br>
+			[upg-form-tag type="post_title" title="Video Title" value="" placeholder="main title"]<br>
+			[upg-form-tag type="category" title="Select category" taxonomy="upg_cate" filter="embed"]<br>
+			[upg-form-tag type="tag" title="Insert tag"]<br>
+			[upg-form-tag type="video_url" title="Insert YouTube URL" placeholder="http://" required="true"]<br>
+			[upg-form-tag type="submit" name="submit" value="Upload"]<br>
+			[/upg-form]<br>
+		</code>
+		<hr>
+		<b>3- Pick Your Card</b>
+		<code>
+			[odudecard-pick]
+		</code>
 
 	</div>
 <?php

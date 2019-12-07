@@ -11,11 +11,7 @@ function odudecard_getlayout($cardid)
 	return $ecard_layout;
 }
 
-function oset_html_content_type()
-{
 
-	return 'text/html';
-}
 function odudecard_allowed_html()
 {
 

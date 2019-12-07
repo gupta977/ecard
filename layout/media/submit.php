@@ -78,19 +78,20 @@ if (upg_verify_captcha() == "OK") {
 	if (!isset($options['odudecard_from']))
 		$options['odudecard_from'] = get_bloginfo('admin_email');
 
-	add_filter('wp_mail_content_type', 'oset_html_content_type');
+
 	$headers[] = 'Reply-To: ' . $SN . ' <' . $SE . '>';
+	$headers[] = 'Content-Type: text/html; charset=UTF-8';
+
 	if ($options['odudecard_from'] != "")
 		$headers[] = 'From: ' . $SN . ' <' . $options['odudecard_from'] . '>';
 
 
 
-	if ($clock == "")
+	if ($clock == "") {
 		wp_mail($RE, $sub, $msg, $headers);
+	}
 
 
-	// Reset content-type to avoid conflicts 
-	remove_filter('wp_mail_content_type', 'oset_html_content_type');
 
 	echo "<br><br><br><a href='' class='pure-button pure-button-primary'>" . __('Send to Others', 'odude-ecard') . "</a>";
 } else {

@@ -13,8 +13,13 @@ else
 if ($SN == '') {
 
 	?>
-
-	<div class="margin-box">
+	<style>
+		.ecard-container {
+			background-color: <?php odudecard_set_color($post, '#ffffff'); ?>;
+		}
+	</style>
+	<?php echo upg_position1(); ?>
+	<div class="margin-box ecard-container" style="text-align:center;">
 		<?php
 			if (upg_isVideo($post)) {
 				$attr = array(
