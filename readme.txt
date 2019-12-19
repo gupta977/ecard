@@ -96,6 +96,9 @@ In settings choose pickup from odude card setting page.
 6. Admin Editing ecards
 
 == Changelog ==
+= 2.6 =
+* Fixed fatal error during activation
+
 =2.5 =
 * Captcha will be handled by UPG-PRO
 * UPG-ECARD-PRO is no more updated or required

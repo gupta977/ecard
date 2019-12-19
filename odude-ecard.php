@@ -3,7 +3,7 @@
 Plugin Name: ODude Ecard UPG
 Plugin URI: http://odude.com/
 Description: ODude Ecard to make a complete greetings card site.
-Version: 2.5
+Version: 2.6
 Author: ODude Network
 Author URI: http://odude.com/
 License: GPLv2 or later
@@ -224,7 +224,7 @@ add_action('wp_loaded', 'pending_cards');
 
 function pending_cards()
 {
-	if (is_upg_pro()) {
+	if (function_exists('is_upg_pro') && is_upg_pro()) {
 		global $wpdb;
 		$options = get_option('odudecard_settings');
 
