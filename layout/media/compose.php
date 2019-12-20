@@ -6,7 +6,7 @@
 		$captcha = '<div class="g-recaptcha" data-sitekey="' . $options['odudecard_text_captcha_key'] . '"></div><br>';
 
 	$futuredate = "";
-	if (is_upg_pro() && isset($options['odudecard_text_date_enable']) && $options['odudecard_text_date_enable'] == '1')
+	if (function_exists('is_upg_pro') && is_upg_pro() && isset($options['odudecard_text_date_enable']) && $options['odudecard_text_date_enable'] == '1')
 		$futuredate = '<input type="date" class="datepicker" name="datepicker" value="" />';
 
 	do_action('odudecard_music', $post);
@@ -15,7 +15,7 @@
 	if (isset($_GET['facebook']) || $sendto == "tofb") {
 		//This is for sending ecard to facebook messenger
 		if ($sendto == "toboth") {
-			?>
+	?>
 
 			<ul id="odudecard_tabnav">
 
@@ -26,11 +26,11 @@
 
 			<div id="odudecard_divider">Enter Details &#8595;</div>
 		<?php
-			}
+		}
 
 
 
-			?>
+		?>
 		<form class="pure-form pure-form-stacked" method="post">
 			<div class="pure-g">
 				<div class="pure-u-1-2"><?php esc_html_e('Your Name', 'odude-ecard'); ?></div>
@@ -47,36 +47,36 @@
 
 
 						<?php $settings = array(
-									'wpautop'          => true,  // enable rich text editor
-									'media_buttons'    => false,  // enable add media button
-									'textarea_name'    => 'body', // name
-									'textarea_rows'    => '10',  // number of textarea rows
-									'tabindex'         => '',    // tabindex
-									'editor_css'       => '',    // extra CSS
-									'editor_class'     => 'odudecard-rich-textarea', // class
-									'teeny'            => false, // output minimal editor config
-									'dfw'              => false, // replace fullscreen with DFW
-									'tinymce'          => true,  // enable TinyMCE
-									'quicktags'        => false,  // enable quicktags
-									'drag_drop_upload' => false, // enable drag-drop
-								);
-								wp_editor('', 'odudecard_msg', apply_filters('odudecard_editor_settings', $settings)); ?>
+							'wpautop'          => true,  // enable rich text editor
+							'media_buttons'    => false,  // enable add media button
+							'textarea_name'    => 'body', // name
+							'textarea_rows'    => '10',  // number of textarea rows
+							'tabindex'         => '',    // tabindex
+							'editor_css'       => '',    // extra CSS
+							'editor_class'     => 'odudecard-rich-textarea', // class
+							'teeny'            => false, // output minimal editor config
+							'dfw'              => false, // replace fullscreen with DFW
+							'tinymce'          => true,  // enable TinyMCE
+							'quicktags'        => false,  // enable quicktags
+							'drag_drop_upload' => false, // enable drag-drop
+						);
+						wp_editor('', 'odudecard_msg', apply_filters('odudecard_editor_settings', $settings)); ?>
 
 
 					<?php
-						} else {
-							?>
+					} else {
+					?>
 
 						<?php esc_html_e('Message', 'odude-ecard'); ?>:<br> <textarea id="body" name="body" class="pure-u-1" placeholder="" rows="4" cols="50"></textarea>
 
 
 					<?php
-						}
-						?>
+					}
+					?>
 				</div>
 				<div class="pure-u-1-1"><?php
-											do_action("upg_submit_form");
-											?></div>
+										do_action("upg_submit_form");
+										?></div>
 				<div class="pure-u-1-1 pure-u-md-1-2"><button type="submit" class="pure-button" name="facebook" id="facebook" formaction="<?php echo $linku; ?>"><i class="fa fa-share"></i> <?php esc_html_e('Generate Ecard Link', 'odude-ecard'); ?></button> <input type="hidden" name="cardid" value="<?php echo $cardid; ?>"></div>
 
 
@@ -85,10 +85,10 @@
 
 
 		<?php
-		} else {
-			//This is to send ecard to email
-			if ($sendto == "toboth") {
-				?>
+	} else {
+		//This is to send ecard to email
+		if ($sendto == "toboth") {
+		?>
 
 			<ul id="odudecard_tabnav">
 
@@ -100,8 +100,8 @@
 
 			<div id="odudecard_divider">Enter Details &#8595;</div>
 		<?php
-			}
-			?>
+		}
+		?>
 		<form class="pure-form pure-form-stacked" method="post">
 			<div class="pure-g">
 				<div class="pure-u-1-2"><?php esc_html_e('Your Name', 'odude-ecard'); ?></div>
@@ -121,32 +121,32 @@
 
 
 						<?php $settings = array(
-									'wpautop'          => true,  // enable rich text editor
-									'media_buttons'    => false,  // enable add media button
-									'textarea_name'    => 'body', // name
-									'textarea_rows'    => '10',  // number of textarea rows
-									'tabindex'         => '',    // tabindex
-									'editor_css'       => '',    // extra CSS
-									'editor_class'     => 'odudecard-rich-textarea', // class
-									'teeny'            => false, // output minimal editor config
-									'dfw'              => false, // replace fullscreen with DFW
-									'tinymce'          => true,  // enable TinyMCE
-									'quicktags'        => false,  // enable quicktags
-									'drag_drop_upload' => false, // enable drag-drop
-								);
-								wp_editor('', 'odudecard_msg', apply_filters('odudecard_editor_settings', $settings)); ?>
+							'wpautop'          => true,  // enable rich text editor
+							'media_buttons'    => false,  // enable add media button
+							'textarea_name'    => 'body', // name
+							'textarea_rows'    => '10',  // number of textarea rows
+							'tabindex'         => '',    // tabindex
+							'editor_css'       => '',    // extra CSS
+							'editor_class'     => 'odudecard-rich-textarea', // class
+							'teeny'            => false, // output minimal editor config
+							'dfw'              => false, // replace fullscreen with DFW
+							'tinymce'          => true,  // enable TinyMCE
+							'quicktags'        => false,  // enable quicktags
+							'drag_drop_upload' => false, // enable drag-drop
+						);
+						wp_editor('', 'odudecard_msg', apply_filters('odudecard_editor_settings', $settings)); ?>
 
 
 					<?php
-						} else {
-							?>
+					} else {
+					?>
 
 						<?php esc_html_e('Message', 'odude-ecard'); ?>:<br> <textarea id="body" name="body" class="pure-u-1" placeholder="" rows="4" cols="50"></textarea>
 
 
 					<?php
-						}
-						?>
+					}
+					?>
 				</div>
 
 				<div class="pure-u-1-2"><?php if ($futuredate != "") esc_html_e('Send card on specific date:', 'odude-ecard'); ?><?php echo $futuredate; ?></div>
@@ -154,8 +154,8 @@
 
 				<div class="pure-u-1-1">
 					<?php
-						do_action("upg_submit_form");
-						?>
+					do_action("upg_submit_form");
+					?>
 				</div>
 
 				<div class="pure-u-1-1 pure-u-md-1-2"> <button type="submit" class="pure-button pure-button-primary">

@@ -68,7 +68,7 @@ function odude_free_settings()
 	if (!isset($options['odudecard_send_opt']))
 		$options['odudecard_send_opt'] = "toboth";
 
-	?>
+?>
 
 	<div class="pure-control-group">
 		<label for="name">System email from address. </label>
@@ -101,24 +101,24 @@ function odude_free_settings()
 	<?php
 
 
+}
+
+function odude_pro_settings()
+{
+	$options = get_option('odudecard_settings');
+	if (!isset($options['odudecard_text_date_enable'])) {
+		$options['odudecard_text_date_enable'] = "0";
+		//update_option('odudecard_settings',$options);
 	}
 
-	function odude_pro_settings()
-	{
-		$options = get_option('odudecard_settings');
-		if (!isset($options['odudecard_text_date_enable'])) {
-			$options['odudecard_text_date_enable'] = "0";
-			//update_option('odudecard_settings',$options);
-		}
+	if (function_exists('is_upg_pro') && is_upg_pro()) {
+		echo "<b><a href='http://www.odude.com'>UPG PRO</a> is Active</b>";
+	} else {
+		echo "<br>Install <b>UPG PRO</a></b> for complete features.";
+	}
+	if (function_exists('is_upg_pro') && is_upg_pro()) {
 
-		if (is_upg_pro()) {
-			echo "<b><a href='http://www.odude.com'>UPG PRO</a> is Active</b>";
-		} else {
-			echo "<br>Install <b>UPG PRO</a></b> for complete features.";
-		}
-		if (is_upg_pro()) {
-
-			?>
+	?>
 		<hr><b>Enable Send on Specific Date:</b> <input type="checkbox" name='odudecard_settings[odudecard_text_date_enable]' value='1' <?php if ($options['odudecard_text_date_enable'] == '1') echo 'checked="checked"'; ?>><br>
 
 		<hr>
@@ -126,8 +126,8 @@ function odude_free_settings()
 
 
 	<?php
-		} else {
-			?><br><br>These features are not availabe in free version.
+	} else {
+	?><br><br>These features are not availabe in free version.
 		<ul>
 			<li>Google reCaptcha to prevent from email spam</li>
 			<li>Enable/Disable Send ecard on specified date</li>
@@ -137,31 +137,31 @@ function odude_free_settings()
 		<input type="hidden" name='odudecard_settings[odudecard_text_date_enable]' value='0'>
 
 	<?php
-		}
 	}
+}
 
 
-	function odudecard_settings_section_callback()
-	{
+function odudecard_settings_section_callback()
+{
 
-		//echo __( 'Update or modify required settings.', 'odudecard' );
-		/**
-		 * Detect plugin. For use on Front End only.
-		 */
-		//include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-
-
-	}
+	//echo __( 'Update or modify required settings.', 'odudecard' );
+	/**
+	 * Detect plugin. For use on Front End only.
+	 */
+	//include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 
+}
 
 
 
-	function odudecard_options_page()
-	{
 
 
-		?>
+function odudecard_options_page()
+{
+
+
+	?>
 
 	<script>
 		jQuery(document).ready(function($) {
@@ -186,9 +186,9 @@ function odude_free_settings()
 				</ul>
 				<div id="tab-1">
 					<?php
-						settings_fields('EcardSettingPage');
-						do_settings_sections('EcardSettingPage');
-						?>
+					settings_fields('EcardSettingPage');
+					do_settings_sections('EcardSettingPage');
+					?>
 				</div>
 
 
@@ -196,9 +196,9 @@ function odude_free_settings()
 
 			<?php
 
-				submit_button();
-				flush_rewrite_rules();
-				?>
+			submit_button();
+			flush_rewrite_rules();
+			?>
 
 		</form>
 	</div>

@@ -96,6 +96,9 @@ In settings choose pickup from odude card setting page.
 6. Admin Editing ecards
 
 == Changelog ==
+= 2.7 =
+* Fixed fatal error for upg-pro
+
 = 2.6 =
 * Fixed fatal error during activation
 
